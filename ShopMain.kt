@@ -1,7 +1,5 @@
 package coffeeshop
 
-import kotlin.random.Random
-
 // 숫자 외 입력시 오류처리
 fun String.isNumeric(): Boolean {
     return try {

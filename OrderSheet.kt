@@ -4,10 +4,10 @@ import coffeeshop.menu.*
 import kotlin.system.exitProcess
 
 // 대기번호 부여하고 하나씩 줄이기
-// 잔액을 바로 표시하지 말고 따로 받아놨다가 카트에 금액이랑 잔액 표시
+// 특정 시간대에는 접속 x 되게 처리
+// 가능하다면 날짜? 를 지정해서 특정 카테고리 품목을 할인해보기
 
 class OrderSheet {
-    private val priceList: Int = 0
     fun totalMenu(shop: String) {
         val pickList = arrayListOf<PickList>()
 
