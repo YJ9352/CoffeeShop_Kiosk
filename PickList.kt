@@ -6,9 +6,7 @@ data class PickList (
     var menuQuantity: Int,
     val menuDescription: String,
 ) {
-    val cart: MutableList<PickList> = mutableListOf()
-    var totalAmount: Int = 0
-    val orderSheet = OrderSheet()
+
     val userData = UserData()
     val userMoney = userData.getMoney()
 
