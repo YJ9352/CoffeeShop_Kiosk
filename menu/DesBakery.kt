@@ -7,19 +7,21 @@ class DesBakery {
     fun desbakOrder() {
         val cart = Cart() // 카트
         val menuData = MenuData() // 메뉴 출력
-
-        println("어서오세요! 고객님.  |  현재 주문 대기 수는 [ 0 ] 명 입니다.")
-        println(" ---------------------------------------------------------------------------------------------------")
-        println("[ D & B Menu ]  [Price]  [Menu description]")
-        println(" ---------------------------------------------------------------------------------------------------")
-        menuData.desbakList.forEachIndexed { index, pickList ->
-            println("${index + 1}. ${pickList.menuName.padEnd(12)} ${pickList.menuPrice}  ${pickList.menuDescription}")
-        }
-        println(" ---------------------------------------------------------------------------------------------------")
-        println(":: MENU ::                                                 8. 메인으로  |  9. 주문조회  |  0. 종료  ")
-        println(" ---------------------------------------------------------------------------------------------------")
+        val pickList = arrayListOf<PickList>()
 
         while (true) {
+            println("어서오세요! 고객님.  |  현재 주문 대기 수는 [ 0 ] 명 입니다.")
+            println(" ---------------------------------------------------------------------------------------------------")
+            println("[ D & B Menu ]  [Price]  [Menu description]")
+            println(" ---------------------------------------------------------------------------------------------------")
+            menuData.desbakList.forEachIndexed { index, pickList ->
+                println("${index + 1}. ${pickList.menuName.padEnd(12)} ${pickList.menuPrice}  ${pickList.menuDescription}")
+            }
+            println(" ---------------------------------------------------------------------------------------------------")
+            println(":: MENU ::                                                 8. 메인으로  |  9. 주문조회  |  0. 종료  ")
+            println(" ---------------------------------------------------------------------------------------------------")
+
+
             val cPick = readln() // 메뉴 고르기
             if (!cPick.isNumeric()) { // 숫자 외 입력시 오류처리
                 println(" ---------------------------------------------------------------------------------------------------")
@@ -34,6 +36,7 @@ class DesBakery {
                     println(" :: 선택하신 메뉴는 ${menuData.desbakList[0].menuName}, ${menuData.desbakList[0].menuPrice} 원 입니다.")
                     println(" :: 구입하실 갯수를 입력해 주세요.")
                     println(" ---------------------------------------------------------------------------------------------------")
+
                     val cPick = readln() // 갯수 선택
                     if (!cPick.isNumeric()) { // 숫자 외 입력시 오류처리
                         println(" ---------------------------------------------------------------------------------------------------")
@@ -48,8 +51,7 @@ class DesBakery {
                         cart.addPickList(price) // 윗줄에서 계산한 값을 보여줌
                         price.pickDisplayInfo() // 가격 합계 보여줌
 
-                        Thread.sleep(2000) // 너무 빨리 넘어가서 대기시간
-                        return
+                        Thread.sleep(1000) // 너무 빨리 넘어가서 대기시간
                     } else {
                         println(" ---------------------------------------------------------------------------------------------------")
                         println("                                   1보다 적은 갯수는 선택할 수 없습니다.")
@@ -78,8 +80,7 @@ class DesBakery {
                         cart.addPickList(price) // 윗줄에서 계산한 값을 보여줌
                         price.pickDisplayInfo() // 가격 합계 보여줌
 
-                        Thread.sleep(2000) // 너무 빨리 넘어가서 대기시간
-                        return
+                        Thread.sleep(1000) // 너무 빨리 넘어가서 대기시간
                     } else {
                         println(" ---------------------------------------------------------------------------------------------------")
                         println("                                   1보다 적은 갯수는 선택할 수 없습니다.")
@@ -108,8 +109,7 @@ class DesBakery {
                         cart.addPickList(price) // 윗줄에서 계산한 값을 보여줌
                         price.pickDisplayInfo() // 가격 합계 보여줌
 
-                        Thread.sleep(2000) // 너무 빨리 넘어가서 대기시간
-                        return
+                        Thread.sleep(1000) // 너무 빨리 넘어가서 대기시간
                     } else {
                         println(" ---------------------------------------------------------------------------------------------------")
                         println("                                   1보다 적은 갯수는 선택할 수 없습니다.")
@@ -138,8 +138,7 @@ class DesBakery {
                         cart.addPickList(price) // 윗줄에서 계산한 값을 보여줌
                         price.pickDisplayInfo() // 가격 합계 보여줌
 
-                        Thread.sleep(2000) // 너무 빨리 넘어가서 대기시간
-                        return
+                        Thread.sleep(1000) // 너무 빨리 넘어가서 대기시간
                     } else {
                         println(" ---------------------------------------------------------------------------------------------------")
                         println("                                   1보다 적은 갯수는 선택할 수 없습니다.")
@@ -168,8 +167,7 @@ class DesBakery {
                         cart.addPickList(price) // 윗줄에서 계산한 값을 보여줌
                         price.pickDisplayInfo() // 가격 합계 보여줌
 
-                        Thread.sleep(2000) // 너무 빨리 넘어가서 대기시간
-                        return
+                        Thread.sleep(1000) // 너무 빨리 넘어가서 대기시간
                     } else {
                         println(" ---------------------------------------------------------------------------------------------------")
                         println("                                   1보다 적은 갯수는 선택할 수 없습니다.")
@@ -178,10 +176,8 @@ class DesBakery {
                     }
                 }
 
-                8 -> return main()
-
+                8 -> main()
                 9 -> cart.showCart()
-
                 0 -> exitProcess(0)
 
                 else -> {
