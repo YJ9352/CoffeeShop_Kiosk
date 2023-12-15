@@ -20,10 +20,10 @@ class OrderSheet {
         // 앞에서 누른 번호 여기서 받아 실행
         while (true) {
             when (shop.toInt()) {
-                1 -> coffees.coffOrder()
-                2 -> decaf.decafOrder()
-                3 -> drink.drinkOrder()
-                4 -> desBakery.desbakOrder()
+                1 -> coffees.order()
+                2 -> decaf.order()
+                3 -> drink.order()
+                4 -> desBakery.order()
                 9 -> cart.showCart()
                 0 -> exitProcess(0)
 

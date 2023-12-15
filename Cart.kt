@@ -1,9 +1,12 @@
 package coffeeshop
 
+import java.time.LocalDateTime
 import kotlin.system.exitProcess
 
 class Cart {
-    companion object {
+    var now = LocalDateTime.now()
+
+    companion object { // 이걸 붙이면 안에 든걸 전체에 적용되는거였던듯
         val pickList: MutableList<PickList> = mutableListOf()
     }
 
@@ -48,10 +51,12 @@ class Cart {
                             println(" ---------------------------------------------------------------------------------------------------")
                             println(" :: 결제가 완료되었습니다. 이용해 주셔서 감사합니다. 잔액은 ${payment - total}입니다.")
                             println(" ---------------------------------------------------------------------------------------------------")
+                            println(" :: 현재 시각은 ${now}입니다.")
+                            println(" ---------------------------------------------------------------------------------------------------")
 
-                            Thread.sleep(3000) // 대기 후 메인으로
+                            Thread.sleep(3000) // 3초 대기 후 메인으로
 
-                            return main()
+                            exitProcess(0)
                         } else {
                             println(" ---------------------------------------------------------------------------------------------------")
                             println(" :: 결제가 실패하였습니다. 잔액을 확인해주세요.")
@@ -81,5 +86,10 @@ class Cart {
                 continue
             }
         }
+    }
+
+    // 시간 관련해서 처리
+    fun timeSetting() {
+        var now = LocalDateTime.now()
     }
 }
