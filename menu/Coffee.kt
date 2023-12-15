@@ -3,8 +3,8 @@ package coffeeshop.menu
 import coffeeshop.*
 import kotlin.system.exitProcess
 
-class Coffee {
-    fun coffOrder() {
+class Coffee: AbstractMenu() {
+    override fun order() {
         val cart = Cart() // 카트
         val menuData = MenuData() // 메뉴 출력
         val pickList = arrayListOf<PickList>()
