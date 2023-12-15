@@ -3,7 +3,7 @@ package coffeeshop
 import coffeeshop.menu.*
 import kotlin.system.exitProcess
 
-// 대기번호 부여하고 하나씩 줄이기
+// 카트에 물건 담을떄마다 목록이 갱신되고 일정 시간마다 재출력, 결제 후 0 되기
 // 특정 시간대에는 접속 x 되게 처리
 // 가능하다면 날짜? 를 지정해서 특정 카테고리 품목을 할인해보기
 
